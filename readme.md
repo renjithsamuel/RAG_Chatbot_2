@@ -17,6 +17,13 @@ ollama pull qwen3:8b
 # Ingest documents (optional):
 python ingest.py
 
+# Create necessary directories
+mkdir -p app/data/uploads
+mkdir -p app/data/vector_store
+
+# Delete any existing invalid index files
+rm -rf app/data/vector_store/*
+
 # Start FastAPI server:
 uvicorn app.main:app --reload --port 8000
 
